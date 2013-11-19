@@ -74,7 +74,7 @@ set nocompatible                        "Be iMproved
 
  " ===== visual =====
     syntax on
-    colorscheme tomorrow-night          "Set colorscheme
+    colorscheme Tomorrow-Night          "Set colorscheme
     set t_Co=256                        "Force 256 colors
 
  " ====== airline =====
