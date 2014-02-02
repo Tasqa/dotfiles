@@ -19,12 +19,11 @@ set nocompatible                        "Be iMproved
 
  " My Bundles here:
  NeoBundle 'bling/vim-airline'          "ViM only powerline alternative
- NeoBundle 'chriskempson/vim-tomorrow-theme'    "Custom colorscheme
+ NeoBundle 'chriskempson/base16-vim'            "Dark colorscheme
  NeoBundle 'kien/ctrlp.vim'             "Quickly switch buffers
  NeoBundle 'scrooloose/nerdtree'        "Filebrowser plugin
  NeoBundle 'Lokaltog/vim-easymotion'    "Quickly and easily move through windows
  NeoBundle 'elixir-lang/vim-elixir'     "Elixir syntax highlighting
- NeoBundle 'plasticboy/vim-markdown'    "Markdown syntax highlighting
  NeoBundle 'scrooloose/syntastic'       "Syntax checking
  NeoBundle 'tpope/vim-rails'            "Rails shizzle
  NeoBundle 'vim-scripts/JSON.vim'       "JSON syntax highlighting
@@ -70,11 +69,11 @@ set nocompatible                        "Be iMproved
     " Invisible character settings
     set list                            "show invisable characters
     set listchars=tab:▸\ ,eol:¬         "set invisable character symbols
-    set virtualedit=all                 "allow the cursor to go in to "invalid" places
 
  " ===== visual =====
     syntax on
-    colorscheme Tomorrow-Night          "Set colorscheme
+    set background=dark
+    colorscheme base16-default                  "Set colorscheme
     set t_Co=256                        "Force 256 colors
 
  " ====== airline =====
@@ -98,7 +97,9 @@ set nocompatible                        "Be iMproved
     let g:syntastic_enable_signs=1      "Show errors in ruler
 
  " ===== ident/whitespace =====
-    set expandtab
+    set expandtab                       "Indentation with spaces
+    set shiftwidth=2
+    set softtabstop=2
     set smarttab
     set shiftround
     autocmd BufWritePre * :%s/\s\+$//e  "Cleanup file whitespace when saving
@@ -106,7 +107,7 @@ set nocompatible                        "Be iMproved
  " ===== misc =====
     set mouse=a
     set wildmenu                        "Show a navigable menu for tab completion
-    set wildmode=longest,list,full      "Wildmode settings
+    set wim=longest:list,full           "Wildmode settings
     set wildignore=*.swp,*.bak,*.pyc,*.class
     let mapleader=","                   "Change the mapleader from \ to ,
     let maplocalleader="\\"
