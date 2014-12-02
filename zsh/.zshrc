@@ -1,4 +1,4 @@
-source .antigen/antigen/antigen.zsh
+source $HOME/.antigen/antigen/antigen.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -20,7 +20,7 @@ antigen theme terminalparty
 antigen apply
 
 # User configuration
-export PATH="/home/tako/.gem/ruby/2.1.0/bin:/home/tako/.gem/ruby/2.1.0/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl"
+export PATH="/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl:/opt/android-sdk/platform-tools:$HOME/.gem/ruby/2.1.0"
 
 # Preferred editor
 export EDITOR='nvim'
@@ -36,3 +36,6 @@ export WINEDEBUG=-all
 
 #fzf setup
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#Sudo alias for keeping env settings
+alias sudo=sudo -E
