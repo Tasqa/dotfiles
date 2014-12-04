@@ -83,6 +83,9 @@ set wim=list:full                   "Wildmode settings
 set writebackup                     "Do not keep backup files after writeing changes to disk
 set noswapfile                      "Do not write annoying intermediate swap files,
 
+" ====== markdown ======
+let g:vim_markdown_folding_disabled=1 "Disable markdown plugin folds
+
 " ====== airline =====
 set laststatus=2                    "Always show statusline
 set ttimeoutlen=50                  "More responsive mode indicator in statusline
