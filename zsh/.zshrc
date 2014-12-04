@@ -24,6 +24,7 @@ export PATH="/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl:/op
 
 # Preferred editor
 export EDITOR='nvim'
+alias tmux="tmux -2"
 
 # Base16 Shell
 BASE16_SCHEME="tomorrow"
