@@ -37,6 +37,3 @@ export WINEDEBUG=-all
 
 #fzf setup
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-#Sudo alias for keeping env settings
-alias sudo=sudo -E
