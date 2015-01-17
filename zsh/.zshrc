@@ -19,15 +19,21 @@ antigen theme terminalparty
 # Tell antigen that you're done.
 antigen apply
 
-# User configuration
-export PATH="/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl:/opt/android-sdk/platform-tools:$HOME/.gem/ruby/2.1.0"
+
+# Path configuration
+export PATH="/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl:/opt/android-sdk/platform-tools:$HOME/.gem/ruby/2.2.0"
 
 # Preferred editor
 export EDITOR='nvim'
+# Aliases
 alias tmux="tmux -2"
 
+# Color term setup
+if [ -e /usr/share/terminfo/x/xterm-256color ]; then
+        export TERM='xterm-256color'
+fi
 # Base16 Shell
-BASE16_SCHEME="tomorrow"
+BASE16_SCHEME="eighties"
 BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
 [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 
