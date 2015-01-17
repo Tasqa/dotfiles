@@ -19,6 +19,8 @@ antigen theme terminalparty
 # Tell antigen that you're done.
 antigen apply
 
+#fzf setup
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Path configuration
 export PATH="/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl:/opt/android-sdk/platform-tools:$HOME/.gem/ruby/2.2.0"
@@ -37,9 +39,7 @@ BASE16_SCHEME="eighties"
 BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
 [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 
-#Wine settings
-export WINEARCH=win32
-export WINEDEBUG=-all
-
-#fzf setup
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# GPG setup
+gpg-connect-agent /bye
+SSH_AUTH_SOCK="$HOME/.gnupg/S.gpg-agent.ssh"; export SSH_AUTH_SOCK;
+GPG_TTY=$(tty); export GPG_TTY
