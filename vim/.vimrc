@@ -1,5 +1,5 @@
 "ViM config file
-"Curated by Tako Marks by various sources
+"Curated by Tako Marks from various sources
 
 " ===== init =====
 set nocompatible                  "Be iMproved
@@ -23,7 +23,7 @@ Plug 'tpope/vim-sleuth'           "Plugin for auto identation settings
 Plug 'tpope/vim-surround'         "Plugin for surrounding managing quotes and brackets
 Plug 'tpope/vim-repeat'           "enable repeating supported plugin maps with .
 Plug 'plasticboy/vim-markdown'    "Markdown highlighting and rules with mappings
-Plug 'edkolev/tmuxline.vim'       "ViM Ailrline theme to tmux
+Plug 'edkolev/tmuxline.vim'       "ViM Airline theme to tmux
 
 call plug#end()
 
@@ -63,10 +63,9 @@ set listchars=tab:▸\ ,eol:¬         "set invisable character symbols
 
 " ===== visual =====
 syntax on
-set background=dark
-let base16colorspace=256            " Access colors present in 256 colorspace
-colorscheme base16-eighties         "Set colorscheme
-set term=screen-256color            "Force 256 colors
+let base16colorspace=256            "Access colors present in 256 colorspace
+colorscheme base16-tomorrow         "Set colorscheme
+hi Normal ctermbg=NONE              "Disable background color for transparency
 
 " ===== ident/whitespace =====
 set expandtab                       "Indentation with spaces
