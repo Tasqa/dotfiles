@@ -5,7 +5,6 @@ antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundle git
-antigen bundle docker
 antigen bundle systemd
 antigen bundle archlinux
 antigen bundle command-not-found
@@ -34,12 +33,16 @@ alias tmux="tmux -2"
 if [ -e /usr/share/terminfo/x/xterm-256color ]; then
         export TERM='xterm-256color'
 fi
-# Base16 Shell
-BASE16_SCHEME="eighties"
-BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
-[[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 
 # GPG setup
 gpg-connect-agent /bye
 SSH_AUTH_SOCK="$HOME/.gnupg/S.gpg-agent.ssh"; export SSH_AUTH_SOCK;
 GPG_TTY=$(tty); export GPG_TTY
+
+# Base16 Shell
+BASE16_SCHEME="tomorrow"
+BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
+if [ "$USER" != "root" ]; then
+  [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
+fi
+
