@@ -1,0 +1,15 @@
+urxvt*font:             xft:Source Code Pro for Powerline:size=10
+urvxt.xftAntialias: 	true
+urxvt*termName:         rxvt
+urxvt*scrollBar:        false
+urxvt*perl-ext-common:  default,matcher
+urxvt*url-launcher:     /bin/xdg-open
+urvxt*matcher.button:   1
+
+Xft*dpi:                96
+Xft*antialias:          true
+Xft*hinting:            full
+
+urxvt*transparent: true
+urxvt*shading: 50
+
