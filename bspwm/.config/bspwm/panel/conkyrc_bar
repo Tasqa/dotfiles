@@ -1,0 +1,18 @@
+# Powerline like conky for bar
+
+# conky settings
+
+background no
+update_interval 2
+cpu_avg_samples 1
+total_run_times 0
+override_utf8_locale yes
+short_units yes
+pad_percents 2
+top_name_width 9
+uppercase no
+out_to_console yes
+out_to_x no
+
+TEXT
+S cpu: ${cpu cpu0}%%% | mem: ${mem} | temp: ${acpitemp}C${if_up wlp3s0} | wlan: ${wireless_essid wlp3s0} | down: ${downspeed wlp3s0} | up: ${upspeed wlp3s0}${else} | down: ${downspeed enp0s25} | up: ${upspeed enp0s25}${endif} | bat: ${battery_percent BAT1}%%% & ${battery_percent BAT0}%%% | vol: ${exec amixer get Master | grep 'Front Left': | cut -c 31-32}%%% | ${time %H:%M}

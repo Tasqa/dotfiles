@@ -1,0 +1,37 @@
+! Xresources file
+! Collected by Tako Marks
+
+URxvt*background: Black
+URxvt*foreground: White
+URxvt*scrollstyle: plain
+URxvt*scrollBar: false
+
+!weak-ass transparency
+!URxvt*transparent: true
+!URxvt*shading: 50
+URxvt.depth: 32
+URxvt.background: [70]#000000
+
+! proper scrolling
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+
+! font settings
+URxvt*font: xft:Sauce Code Powerline:size=10
+Xft*dpi:                96
+Xft*antialias:          true
+Xft*hinting:            full
+
+! clickable links
+URxvt.perl-ext-common: default,matcher,clipboard
+URxvt.url-launcher: /usr/bin/firefox
+URxvt.matcher.button: 1
+
+! standard copy-paste keys
+URxvt.iso14755: False
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.clipboard.copycmd:  xsel -ib
+URxvt.clipboard.pastecmd: xsel -ob
+! set cursor theme
+Xcursor.theme: left_ptr

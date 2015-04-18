@@ -1,0 +1,45 @@
+#! /bin/sh
+
+# bspwm config
+bspc config border_width            1
+bspc config window_gap              10
+bspc config split_ratio             0.50
+bspc config borderless_monocle      true
+bspc config gapless_monocle         true
+bspc config focus_follows_pointer   true
+bspc config history_aware_focus     true
+
+# monitor config
+bspc monitor ^1 -d web term mail misc
+bspc monitor ^2 -d big
+
+# rule config
+bspc rule -a Firefox desktop=^1
+bspc rule -a Thunderbird desktop=^3
+
+# colors
+bspc config focused_border_color "#BCBCBC"
+bspc config normal_border_color "#6C6C6C"
+bspc config active_border_color "#6C6C6C"
+bspc config focused_locked_border_color "#00C7D8"
+bspc config normal_locked_border_color "#6C6C6C"
+bspc config active_locked_border_color "#6C6C6C"
+bspc config urgent_border_color "#CB4B16"
+bspc config presel_border_color "#FF8700"
+
+# panel setup
+export PATH="$PATH:$HOME/.config/bspwm/panel"
+panel & # start panel
+
+# misc settings
+xset -b # Turn off bell
+xset dpms # Turn off screen after 10 minutes
+xsetroot -cursor_name left_ptr #Set Cursor to Arrow-Shape
+synclient 'TouchpadOff=1'  # Turn off touchpad
+compton & #Start compositor
+xautolock -secure -detectsleep -time 5 -locker 'i3lock -f -l' & #Enable automatic screenlock
+
+# application autostart
+sh $HOME/.fehbg & # set wallpaper
+redshift & # screentemp
+megasync
