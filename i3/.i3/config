@@ -129,12 +129,13 @@ for_window [window_role="task_dialog"] floating enable
 exec sh ~/.fehbg &
 
 # Setup system preferences
+exec xset -b  # Turn off bell
 exec xset dpms 600  # Turn off screen after 10 minutes
 exec synclient 'TouchpadOff=1'  # Turn off touchpad
 exec compton --backend glx --vsync opengl #Prevent tearing in i.e. firefox
 
 # Lock Screen
-exec xautolock -secure -time 5 -locker 'i3lock -f -l' #Enable automatic screenlock
+exec xautolock -secure -detectsleep -time 5 -locker 'i3lock -f -l' #Enable automatic screenlock
 bindsym $mod+n exec i3lock -f -l
 bindsym $mod+Shift+n exec --no-startup-id sh ~/.i3/lockoff.sh
 
@@ -142,7 +143,5 @@ bindsym $mod+Shift+n exec --no-startup-id sh ~/.i3/lockoff.sh
 exec nm-applet
 exec blueman-applet
 exec --no-startup-id redshift-gtk
-exec firewall-applet
-exec megasync
-exec upowerd -d &>2 /dev/null # Runs Upower daemon to collect battery graphs
+exec --no-startup-id megasync
 
