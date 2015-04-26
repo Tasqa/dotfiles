@@ -27,14 +27,10 @@ bspc config active_locked_border_color "#6C6C6C"
 bspc config urgent_border_color "#CB4B16"
 bspc config presel_border_color "#FF8700"
 
-# panel setup
-export PATH="$PATH:$HOME/.config/bspwm/panel"
-panel & # start panel
+#start panel
+panel &
 
 # misc settings
-xset -b # Turn off bell
-xset dpms # Turn off screen after 10 minutes
-xsetroot -cursor_name left_ptr #Set Cursor to Arrow-Shape
 synclient 'TouchpadOff=1'  # Turn off touchpad
 compton & #Start compositor
 xautolock -secure -detectsleep -time 5 -locker 'i3lock -f -l' & #Enable automatic screenlock
@@ -42,4 +38,4 @@ xautolock -secure -detectsleep -time 5 -locker 'i3lock -f -l' & #Enable automati
 # application autostart
 sh $HOME/.fehbg & # set wallpaper
 redshift & # screentemp
-megasync
+megasync &

@@ -21,23 +21,26 @@ antigen apply
 #fzf setup
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Path configuration
-export PATH="/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl:/opt/android-sdk/platform-tools:$HOME/.gem/ruby/2.2.0"
-
 # Preferred editor
 export EDITOR='nvim'
+
 # Aliases
 alias tmux="tmux -2"
+
+# Path configuration
+export PATH="$HOME/.gem/ruby/2.2.0:$HOME/.config/bspwm/panel:$PATH"
+
+# GPG setup
+if [ -z "$GPG_TTY" ]; then
+  gpg-connect-agent /bye
+  SSH_AUTH_SOCK="$HOME/.gnupg/S.gpg-agent.ssh"; export SSH_AUTH_SOCK;
+  GPG_TTY=$(tty); export GPG_TTY
+fi
 
 # Color term setup
 if [ -e /usr/share/terminfo/x/xterm-256color ]; then
         export TERM='xterm-256color'
 fi
-
-# GPG setup
-gpg-connect-agent /bye
-SSH_AUTH_SOCK="$HOME/.gnupg/S.gpg-agent.ssh"; export SSH_AUTH_SOCK;
-GPG_TTY=$(tty); export GPG_TTY
 
 # Base16 Shell
 BASE16_SCHEME="tomorrow"

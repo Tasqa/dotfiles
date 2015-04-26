@@ -15,4 +15,4 @@ out_to_console yes
 out_to_x no
 
 TEXT
-S cpu: ${cpu cpu0}%%% | mem: ${mem} | temp: ${acpitemp}C${if_up wlp3s0} | wlan: ${wireless_essid wlp3s0} | down: ${downspeed wlp3s0} | up: ${upspeed wlp3s0}${else} | down: ${downspeed enp0s25} | up: ${upspeed enp0s25}${endif} | bat: ${battery_percent BAT1}%%% & ${battery_percent BAT0}%%% | vol: ${exec amixer get Master | grep 'Front Left': | cut -c 31-32}%%% | ${time %H:%M}
+S cpu: ${cpu cpu0}% | mem: ${mem} | ${if_up wlp3s0}wlan: ${wireless_essid wlp3s0}${endif} | bat: ${battery_percent BAT1}% & ${battery_percent BAT0}% | vol: ${exec ponymix get-volume}% | ${time %H:%M}

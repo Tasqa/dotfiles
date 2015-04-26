@@ -1,12 +1,14 @@
+# load x settings
+xset -b # Turn off bell
+xset dpms # Turn off screen after 10 minutes
+xsetroot -cursor_name left_ptr #Set Cursor to Arrow-Shape
+
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+
 # start dbus session deamon
 if test -z "$DBUS_SESSION_BUS_ADDRESS" ; then
-  ## if not found, launch a new one
-  eval `dbus-launch --sh-syntax`
- echo "D-Bus per-session daemon address is: $DBUS_SESSION_BUS_ADDRESS"
+  exec dbus-launch --exit-with-session bspwm-session
 fi
-
-# load x settings
-[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
 # start session
 exec bspwm-session

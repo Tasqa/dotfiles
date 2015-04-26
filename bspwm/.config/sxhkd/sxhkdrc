@@ -83,7 +83,7 @@ super + Return
 	urxvt
 
 super + space
-	dmenu_run -fn "Source Code Pro:size=11"
+	dmenu_run -fn "Source Code Pro:size=10"
 
 super + n
 	i3lock -f -l
