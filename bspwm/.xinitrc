@@ -3,6 +3,7 @@ xset -b # Turn off bell
 xset dpms # Turn off screen after 10 minutes
 xsetroot -cursor_name left_ptr #Set Cursor to Arrow-Shape
 
+xmodmap ~/.xmodmap
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
 # start dbus session deamon
