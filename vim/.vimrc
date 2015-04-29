@@ -19,16 +19,16 @@ Plug 'scrooloose/syntastic'       "Syntax checking
 Plug 'vim-scripts/JSON.vim'       "JSON syntax highlighting
 Plug 'tpope/vim-fugitive'         "Git wrapper
 Plug 'msanders/snipmate.vim'      "Snips plugin, like in ST2/3
-Plug 'tpope/vim-sleuth'           "Plugin for auto identation settings
-Plug 'tpope/vim-surround'         "Plugin for surrounding managing quotes and brackets
 Plug 'tpope/vim-repeat'           "enable repeating supported plugin maps with .
 Plug 'plasticboy/vim-markdown'    "Markdown highlighting and rules with mappings
 Plug 'edkolev/tmuxline.vim'       "ViM Airline theme to tmux
+Plug 'jedi-vim'                   "Python autocompletion
 
 call plug#end()
 
 " ===== general =====
-set history=50                     "Sets how many lines of history VIM has to remember
+set history=50                      "Sets how many lines of history VIM has to remember
+let mapleader = ","                 "Set the leader key
 
 " Enable filetype plugins
 filetype plugin on
@@ -50,6 +50,7 @@ set showcmd                         "Show partial commands in statusline
 set showmatch                       "Set show matching parenthesis
 set autoindent                      "Automatically use indent settings of previous line
 set backspace=indent,eol,start      "Make backspace work sanely
+set hidden                          "Allow for hidden buffers that haven't been written to disk
 
 " Smarter search settings
 set ignorecase                      "Ignore case...
@@ -61,10 +62,15 @@ set hlsearch                        "Highlight matching strings
 set list                            "show invisable characters
 set listchars=tab:▸\ ,eol:¬         "set invisable character symbols
 
+" ===== buffers =====
+nmap <Tab> :bn<CR>              "Tab cycles forward through all buffers
+nmap <S-Tab> :bp<CR>            "Shift Tab cycles backwards through all buffers
+
 " ===== visual =====
 syntax on
 let base16colorspace=256            "Access colors present in 256 colorspace
 colorscheme base16-tomorrow         "Set colorscheme
+set background=dark                 "Pick dark theme version
 hi Normal ctermbg=NONE              "Disable background color for transparency
 
 " ===== ident/whitespace =====
@@ -81,6 +87,8 @@ set wildmenu                        "Show a navigable menu for tab completion
 set wim=list:full                   "Wildmode settings
 set writebackup                     "Do not keep backup files after writeing changes to disk
 set noswapfile                      "Do not write annoying intermediate swap files,
+set undofile                        "Remember history after file write until reboot
+set undodir=/tmp//                  "Store swap files in fixed location, not current directory.
 
 " ====== markdown ======
 let g:vim_markdown_folding_disabled=1 "Disable markdown plugin folds
@@ -104,3 +112,7 @@ let g:EasyMotion_leader_key = '<space>'             "Easymotion leader key to sp
 set statusline+=%{SyntasticStatuslineFlag()}        "Show Syntastic errors in statusline
 let g:syntastic_check_on_open=1     "Check syntax on file open
 let g:syntastic_enable_signs=1      "Show errors in ruler
+
+" ===== vimrc reloading =====
+nnoremap <leader>ev :e ~/.vimrc<CR>
+nnoremap <leader>sv :source ~/.vimrc<CR>
