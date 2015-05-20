@@ -27,15 +27,15 @@ bspc config active_locked_border_color "#6C6C6C"
 bspc config urgent_border_color "#CB4B16"
 bspc config presel_border_color "#FF8700"
 
-#start panel
-panel &
-
 # misc settings
 synclient 'TouchpadOff=1'  # Turn off touchpad
 compton & #Start compositor
-xautolock -secure -detectsleep -time 5 -locker 'i3lock -f -l' & #Enable automatic screenlock
+xautolock -secure -detectsleep -time 5 -locker 'i3lock -d -l' & #Enable automatic screenlock
 
 # application autostart
 sh $HOME/.fehbg & # set wallpaper
 redshift & # screentemp
 megasync &
+
+#start panel
+/home/tako/.config/bspwm/panel/panel &

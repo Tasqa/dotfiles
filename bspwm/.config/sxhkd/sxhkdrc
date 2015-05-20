@@ -86,7 +86,7 @@ super + space
 	dmenu_run -fn "Source Code Pro:size=10"
 
 super + n
-	i3lock -f -l
+	i3lock -l -d
 
 super + shift + n
 	sh ~/.lockoff.sh

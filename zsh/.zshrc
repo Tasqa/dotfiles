@@ -22,13 +22,14 @@ antigen apply
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Preferred editor
-export EDITOR='nvim'
+export EDITOR='vim'
 
 # Aliases
+alias vim="nvim"
 alias tmux="tmux -2"
 
 # Path configuration
-export PATH="$HOME/.gem/ruby/2.2.0:$HOME/.config/bspwm/panel:$PATH"
+export PATH="$HOME/.gem/ruby/2.2.0:$PATH"
 
 # GPG setup
 if [ -z "$GPG_TTY" ]; then
