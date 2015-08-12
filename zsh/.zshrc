@@ -22,7 +22,7 @@ antigen apply
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Preferred editor
-export EDITOR='vim'
+export EDITOR='nvim'
 
 # Aliases
 alias vim="nvim"

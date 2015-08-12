@@ -88,7 +88,7 @@ set wim=list:full                   "Wildmode settings
 set writebackup                     "Do not keep backup files after writeing changes to disk
 set noswapfile                      "Do not write annoying intermediate swap files,
 set undofile                        "Remember history after file write until reboot
-set undodir=/tmp//                  "Store swap files in fixed location, not current directory.
+set undodir=/tmp/nvimundo//         "Store swap files in fixed location, not current directory.
 
 " ====== markdown ======
 let g:vim_markdown_folding_disabled=1 "Disable markdown plugin folds

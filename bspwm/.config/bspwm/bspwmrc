@@ -14,7 +14,6 @@ bspc monitor ^1 -d web term mail misc
 bspc monitor ^2 -d big
 
 # rule config
-bspc rule -a Firefox desktop=^1
 bspc rule -a Thunderbird desktop=^3
 
 # colors
@@ -28,9 +27,9 @@ bspc config urgent_border_color "#CB4B16"
 bspc config presel_border_color "#FF8700"
 
 # misc settings
-synclient 'TouchpadOff=1'  # Turn off touchpad
+#synclient 'TouchpadOff=1'  # Turn off touchpad
 compton & #Start compositor
-xautolock -secure -detectsleep -time 5 -locker 'i3lock -d -l' & #Enable automatic screenlock
+xautolock -detectsleep -time 5 -locker 'i3lock -d -l' & #Enable automatic screenlock
 
 # application autostart
 sh $HOME/.fehbg & # set wallpaper

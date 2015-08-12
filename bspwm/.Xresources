@@ -18,7 +18,7 @@ URxvt.secondaryScroll: 0
 
 ! font settings
 URxvt*font: xft:Sauce Code Powerline:size=10
-Xft*dpi:                96
+#Xft*dpi:                96
 Xft*antialias:          true
 Xft*hinting:            full
 
