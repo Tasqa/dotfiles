@@ -22,7 +22,7 @@ Plug 'msanders/snipmate.vim'      "Snips plugin, like in ST2/3
 Plug 'tpope/vim-repeat'           "enable repeating supported plugin maps with .
 Plug 'plasticboy/vim-markdown'    "Markdown highlighting and rules with mappings
 Plug 'edkolev/tmuxline.vim'       "ViM Airline theme to tmux
-Plug 'jedi-vim'                   "Python autocompletion
+Plug 'davidhalter/jedi-vim'       "Python autocompletion
 
 call plug#end()
 
@@ -83,7 +83,6 @@ autocmd BufWritePre * :%s/\s\+$//e  "Cleanup file whitespace when saving
 
 " ===== misc =====
 set mouse=a
-set wildmenu                        "Show a navigable menu for tab completion
 set wim=list:full                   "Wildmode settings
 set writebackup                     "Do not keep backup files after writeing changes to disk
 set noswapfile                      "Do not write annoying intermediate swap files,
