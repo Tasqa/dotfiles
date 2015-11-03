@@ -10,16 +10,12 @@ antigen bundle archlinux
 antigen bundle command-not-found
 
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle junegunn/fzf
 
 # Load the theme.
 antigen theme terminalparty
 
 # Tell antigen that you're done.
 antigen apply
-
-#fzf setup
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Preferred editor
 export EDITOR='nvim'
