@@ -1,3 +1,5 @@
+# !!! In order for this file to be read the shell must be invoked as a "login shell" !!!
+
 # panel setup
 PANEL_FIFO=/tmp/panel-fifo
 PANEL_HEIGHT=24
@@ -9,3 +11,8 @@ export PANEL_FIFO PANEL_HEIGHT PANEL_FONT_FAMILY
 if [[ -z $DISPLAY && $XDG_VTNR -eq 1 && $(tty) == '/dev/tty1' ]]; then
 	startx
 fi
+
+# GPG setup
+gpg-connect-agent /bye
+export SSH_AUTH_SOCK="$HOME/.gnupg/S.gpg-agent.ssh"
+

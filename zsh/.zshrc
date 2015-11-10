@@ -27,12 +27,11 @@ alias tmux="tmux -2"
 # Path configuration
 export PATH="$HOME/.gem/ruby/2.2.0:$PATH"
 
-# GPG setup
+#GPG setup
 if [ -z "$GPG_TTY" ]; then
-  gpg-connect-agent /bye
-  SSH_AUTH_SOCK="$HOME/.gnupg/S.gpg-agent.ssh"; export SSH_AUTH_SOCK;
   GPG_TTY=$(tty); export GPG_TTY
 fi
+
 
 # Color term setup
 if [ -e /usr/share/terminfo/x/xterm-256color ]; then
