@@ -8,49 +8,58 @@ source ~/.vim/plug.vim            "Load Plug package manager
 
 call plug#begin('~/.vim/plugged')
 
-" My Plugs here:
-Plug 'bling/vim-airline'          "ViM only powerline alternative
+"My Plugs here:
+" - Visual packages
 Plug 'chriskempson/base16-vim'    "Dark colorscheme
-Plug 'kien/ctrlp.vim'             "Quickly switch buffers
-Plug 'scrooloose/nerdtree'        "Filebrowser plugin
-Plug 'Lokaltog/vim-easymotion'    "Quickly and easily move through windows
-Plug 'elixir-lang/vim-elixir'     "Elixir syntax highlighting
-Plug 'scrooloose/syntastic'       "Syntax checking
-Plug 'vim-scripts/JSON.vim'       "JSON syntax highlighting
-Plug 'tpope/vim-fugitive'         "Git wrapper
-Plug 'msanders/snipmate.vim'      "Snips plugin, like in ST2/3
-Plug 'tpope/vim-repeat'           "enable repeating supported plugin maps with .
-Plug 'plasticboy/vim-markdown'    "Markdown highlighting and rules with mappings
+Plug 'bling/vim-airline'          "ViM only powerline alternative
 Plug 'edkolev/tmuxline.vim'       "ViM Airline theme to tmux
+
+" - Functional packages
+Plug 'tpope/vim-fugitive'         "Git wrapper
+Plug 'scrooloose/syntastic'       "Syntax checking
+Plug 'scrooloose/nerdtree'        "Filebrowser plugin
+Plug 'kien/ctrlp.vim'             "Quickly switch buffers
+Plug 'msanders/snipmate.vim'      "Snips plugin, like in ST2/3
+Plug 'Lokaltog/vim-easymotion'    "Quickly and easily move through windows
+Plug 'tpope/vim-repeat'           "enable repeating supported plugin maps with .
+
+" - Language plugins
 Plug 'davidhalter/jedi-vim'       "Python autocompletion
+Plug 'vim-scripts/JSON.vim'       "JSON syntax highlighting
+Plug 'elixir-lang/vim-elixir'     "Elixir syntax highlighting
+Plug 'plasticboy/vim-markdown'    "Markdown highlighting and rules with mappings
+Plug 'rust-lang/rust.vim'         "Rust language support + autoformatting
+Plug 'racer-rust/vim-racer'       "Rust autocompletion and navigation
 
 call plug#end()
-
-" ===== general =====
-set history=50                      "Sets how many lines of history VIM has to remember
-let mapleader = ","                 "Set the leader key
 
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
 
+" ===== general =====
+set history=50                      "Sets how many lines of history VIM has to remember
+let mapleader = ","                 "Set the leader key
+
 set modelines=0                     "Prevent modelines security exploits
 au FocusLost * :silent! wall        "Save when losing focus
-set encoding=utf-8                  "UTF-8 encoding as default
+set fileencoding=utf-8              "Save as UTF-8 files as default
 set scrolloff=6                     "When scrolling, leave the bottom six lines free
 
 set title                           "Change the terminal's title
 set visualbell                      "Don't beep
-set noerrorbells                    "Don't beep
 set cursorline                      "Highlight the line the cursor is on
 set ttyfast                         "Use fast scrolling
 set ruler                           "Show the location in the file
 set number                          "Show line numbers
 set showcmd                         "Show partial commands in statusline
 set showmatch                       "Set show matching parenthesis
+set wildmenu                        "Visual autocomplete for command menu
 set autoindent                      "Automatically use indent settings of previous line
 set backspace=indent,eol,start      "Make backspace work sanely
 set hidden                          "Allow for hidden buffers that haven't been written to disk
+set wrap                            "Wrap long lines
+set linebreak                       "Wraps at words
 
 " Smarter search settings
 set ignorecase                      "Ignore case...
@@ -62,9 +71,24 @@ set hlsearch                        "Highlight matching strings
 set list                            "show invisable characters
 set listchars=tab:▸\ ,eol:¬         "set invisable character symbols
 
-" ===== buffers =====
+" ===== mappings =====
+"Sane buffer movement
+"noremap <C-h> <C-w>h
+"noremap <C-j> <C-w>j
+"noremap <C-k> <C-w>k
+"noremap <C-l> <C-w>l
+
+"nnoremap j gj                       "Sane up and down in wrapped lines
+"nnoremap k gk
+
+noremap <leader>y "+y               "Yank to OS buffer
+noremap <leader>yy "+yy
+
 nmap <Tab> :bn<CR>              "Tab cycles forward through all buffers
 nmap <S-Tab> :bp<CR>            "Shift Tab cycles backwards through all buffers
+
+nnoremap <leader>ev :e ~/.vimrc<CR>       "Open vim config
+nnoremap <leader>sv :source ~/.vimrc<CR>  "Source vim config
 
 " ===== visual =====
 syntax on
@@ -75,10 +99,8 @@ hi Normal ctermbg=NONE              "Disable background color for transparency
 
 " ===== ident/whitespace =====
 set expandtab                       "Indentation with spaces
-set smarttab
 set shiftwidth=2                    "Spaces used for each step in autoindent
 set softtabstop=2                   "Spaces used for Tab
-set shiftround
 autocmd BufWritePre * :%s/\s\+$//e  "Cleanup file whitespace when saving
 
 " ===== misc =====
@@ -112,6 +134,7 @@ set statusline+=%{SyntasticStatuslineFlag()}        "Show Syntastic errors in st
 let g:syntastic_check_on_open=1     "Check syntax on file open
 let g:syntastic_enable_signs=1      "Show errors in ruler
 
-" ===== vimrc reloading =====
-nnoremap <leader>ev :e ~/.vimrc<CR>
-nnoremap <leader>sv :source ~/.vimrc<CR>
+" ===== rust ======
+let g:racer_cmd="$HOME/.cargo/bin/racer"
+let $RUST_SRC_PATH="/home/tako/Projects/rust/src"
+
