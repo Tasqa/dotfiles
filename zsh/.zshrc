@@ -24,14 +24,12 @@ export EDITOR='nvim'
 alias vim="nvim"
 alias tmux="tmux -2"
 
-# Path configuration
-export PATH="$HOME/.gem/ruby/2.2.0:$PATH"
-
 #GPG setup
 if [ -z "$GPG_TTY" ]; then
+  gpg-connect-agent /bye
+  export SSH_AUTH_SOCK="$HOME/.gnupg/S.gpg-agent.ssh"
   GPG_TTY=$(tty); export GPG_TTY
 fi
-
 
 # Color term setup
 if [ -e /usr/share/terminfo/x/xterm-256color ]; then
@@ -39,8 +37,10 @@ if [ -e /usr/share/terminfo/x/xterm-256color ]; then
 fi
 
 # Base16 Shell
-BASE16_SCHEME="tomorrow"
-BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
+BASE16_SCHEME="tommorrow"
+BASE16_FLAVOR="dark"
+BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.$BASE16_FLAVOR.sh"
+source dotfiles/base16-shell/.config/base16-shell/base16-tomorrow.dark.sh
 if [ "$USER" != "root" ]; then
   [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 fi

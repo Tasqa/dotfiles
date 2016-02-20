@@ -22,6 +22,7 @@ Plug 'kien/ctrlp.vim'             "Quickly switch buffers
 Plug 'msanders/snipmate.vim'      "Snips plugin, like in ST2/3
 Plug 'Lokaltog/vim-easymotion'    "Quickly and easily move through windows
 Plug 'tpope/vim-repeat'           "enable repeating supported plugin maps with .
+Plug 'Valloric/YouCompleteMe'     "Autocompletion Engine
 
 " - Language plugins
 Plug 'davidhalter/jedi-vim'       "Python autocompletion
@@ -29,22 +30,24 @@ Plug 'vim-scripts/JSON.vim'       "JSON syntax highlighting
 Plug 'elixir-lang/vim-elixir'     "Elixir syntax highlighting
 Plug 'plasticboy/vim-markdown'    "Markdown highlighting and rules with mappings
 Plug 'rust-lang/rust.vim'         "Rust language support + autoformatting
-Plug 'racer-rust/vim-racer'       "Rust autocompletion and navigation
 
 call plug#end()
+
+"Plug settings
+let g:plug_window="horizontal topleft new"
 
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
 
 " ===== general =====
-set history=50                      "Sets how many lines of history VIM has to remember
+set history=100                      "Sets how many lines of history VIM has to remember
 let mapleader = ","                 "Set the leader key
 
 set modelines=0                     "Prevent modelines security exploits
 au FocusLost * :silent! wall        "Save when losing focus
 set fileencoding=utf-8              "Save as UTF-8 files as default
-set scrolloff=6                     "When scrolling, leave the bottom six lines free
+set scrolloff=6                     "When scrolling, leave the bottom six lines
 
 set title                           "Change the terminal's title
 set visualbell                      "Don't beep
@@ -72,11 +75,16 @@ set list                            "show invisable characters
 set listchars=tab:▸\ ,eol:¬         "set invisable character symbols
 
 " ===== mappings =====
-"Sane buffer movement
-"noremap <C-h> <C-w>h
-"noremap <C-j> <C-w>j
-"noremap <C-k> <C-w>k
-"noremap <C-l> <C-w>l
+:tnoremap <Esc> <C-\><C-n>          "Escape from terminal emulator
+
+tnoremap <A-h> <C-\><C-n><C-w>h     "Easier window movement
+tnoremap <A-j> <C-\><C-n><C-w>j
+tnoremap <A-k> <C-\><C-n><C-w>k
+tnoremap <A-l> <C-\><C-n><C-w>l
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
 
 "nnoremap j gj                       "Sane up and down in wrapped lines
 "nnoremap k gk
@@ -95,7 +103,7 @@ syntax on
 let base16colorspace=256            "Access colors present in 256 colorspace
 colorscheme base16-tomorrow         "Set colorscheme
 set background=dark                 "Pick dark theme version
-hi Normal ctermbg=NONE              "Disable background color for transparency
+hi Normal ctermbg=none              "Disable background color for transparency
 
 " ===== ident/whitespace =====
 set expandtab                       "Indentation with spaces
@@ -123,18 +131,14 @@ let g:airline_powerline_fonts=1     "Use nice powerline patched font symbols
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1            "Show hidden files and folders
 let NERDTreeHighlightCursorline=1   "Highlight cursor line
-let NERDTreeMouseMode=2             "Use a single click to fold/unfold directories and a double click to open
+let NERDTreeMouseMode=2             "Able to use the mouse to open directories and files
 let NERDTreeIgnore = ['\.DS_Store$', '\.un\~$', '\.swp$']       " Set file filtering patterns
 
 " ===== easymotion =====
-let g:EasyMotion_leader_key = '<space>'             "Easymotion leader key to spacebar
+let g:EasyMotion_leader_key = '<space>'   "Easymotion leader key to spacebar
 
 " ===== syntastic =====
 set statusline+=%{SyntasticStatuslineFlag()}        "Show Syntastic errors in statusline
 let g:syntastic_check_on_open=1     "Check syntax on file open
 let g:syntastic_enable_signs=1      "Show errors in ruler
-
-" ===== rust ======
-let g:racer_cmd="$HOME/.cargo/bin/racer"
-let $RUST_SRC_PATH="/home/tako/Projects/rust/src"
 
