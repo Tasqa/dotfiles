@@ -12,7 +12,3 @@ if [[ -z $DISPLAY && $XDG_VTNR -eq 1 && $(tty) == '/dev/tty1' ]]; then
 	startx
 fi
 
-# GPG setup
-gpg-connect-agent /bye
-export SSH_AUTH_SOCK="$HOME/.gnupg/S.gpg-agent.ssh"
-
