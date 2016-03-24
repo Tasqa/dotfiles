@@ -37,10 +37,9 @@ if [ -e /usr/share/terminfo/x/xterm-256color ]; then
 fi
 
 # Base16 Shell
-BASE16_SCHEME="tommorrow"
+BASE16_SCHEME="tomorrow"
 BASE16_FLAVOR="dark"
 BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.$BASE16_FLAVOR.sh"
-source dotfiles/base16-shell/.config/base16-shell/base16-tomorrow.dark.sh
 if [ "$USER" != "root" ]; then
   [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 fi
