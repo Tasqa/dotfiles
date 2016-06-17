@@ -75,12 +75,14 @@ set list                            "show invisable characters
 set listchars=tab:▸\ ,eol:¬         "set invisable character symbols
 
 " ===== mappings =====
-:tnoremap <Esc> <C-\><C-n>          "Escape from terminal emulator
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>          "Escape from terminal emulator
+  tnoremap <A-h> <C-\><C-n><C-w>h     "Easier window movement
+  tnoremap <A-j> <C-\><C-n><C-w>j
+  tnoremap <A-k> <C-\><C-n><C-w>k
+  tnoremap <A-l> <C-\><C-n><C-w>l
+endif
 
-tnoremap <A-h> <C-\><C-n><C-w>h     "Easier window movement
-tnoremap <A-j> <C-\><C-n><C-w>j
-tnoremap <A-k> <C-\><C-n><C-w>k
-tnoremap <A-l> <C-\><C-n><C-w>l
 nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k

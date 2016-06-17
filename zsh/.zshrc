@@ -18,10 +18,14 @@ antigen theme terminalparty
 antigen apply
 
 # Preferred editor
-export EDITOR='nvim'
+if [[ -n `command -v nvim` ]]; then
+  export EDITOR='nvim'
+  alias vim="nvim"
+else
+  export EDITOR='vim'
+fi
 
 # Aliases
-alias vim="nvim"
 alias tmux="tmux -2"
 
 #GPG setup
