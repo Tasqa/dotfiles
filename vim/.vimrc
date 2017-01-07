@@ -21,8 +21,9 @@ Plug 'scrooloose/nerdtree'        "Filebrowser plugin
 Plug 'kien/ctrlp.vim'             "Quickly switch buffers
 Plug 'msanders/snipmate.vim'      "Snips plugin, like in ST2/3
 Plug 'Lokaltog/vim-easymotion'    "Quickly and easily move through windows
-Plug 'tpope/vim-repeat'           "enable repeating supported plugin maps with .
+Plug 'tpope/vim-repeat'           "enable repeating supported plugin maps with.
 Plug 'Valloric/YouCompleteMe'     "Autocompletion Engine
+Plug 'vimwiki/vimwiki'            "Wiki plugin for ViM
 
 " - Language plugins
 Plug 'davidhalter/jedi-vim'       "Python autocompletion
