@@ -3,3 +3,5 @@
 	email = me@tako.mx
 [push]
 	default = simple
+[rerere]
+	enabled = true
