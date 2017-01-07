@@ -31,7 +31,7 @@ alias tmux="tmux -2"
 #GPG setup
 if [ -z "$GPG_TTY" ]; then
   gpg-connect-agent /bye
-  export SSH_AUTH_SOCK="$HOME/.gnupg/S.gpg-agent.ssh"
+  export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
   GPG_TTY=$(tty); export GPG_TTY
 fi
 
