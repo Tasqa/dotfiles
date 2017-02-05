@@ -1,3 +1,4 @@
 vim/.vim/plugged/*
 zsh/.antigen/repos/*
 zsh/.antigen/revert-info
+zsh/.antigen/antigen.log

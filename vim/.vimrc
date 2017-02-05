@@ -22,7 +22,6 @@ Plug 'kien/ctrlp.vim'             "Quickly switch buffers
 Plug 'msanders/snipmate.vim'      "Snips plugin, like in ST2/3
 Plug 'Lokaltog/vim-easymotion'    "Quickly and easily move through windows
 Plug 'tpope/vim-repeat'           "enable repeating supported plugin maps with.
-Plug 'Valloric/YouCompleteMe'     "Autocompletion Engine
 Plug 'vimwiki/vimwiki'            "Wiki plugin for ViM
 
 " - Language plugins
@@ -42,7 +41,7 @@ filetype plugin on
 filetype indent on
 
 " ===== general =====
-set history=100                      "Sets how many lines of history VIM has to remember
+set history=100                     "Sets how many lines of history VIM has to remember
 let mapleader = ","                 "Set the leader key
 
 set modelines=0                     "Prevent modelines security exploits
@@ -64,6 +63,8 @@ set backspace=indent,eol,start      "Make backspace work sanely
 set hidden                          "Allow for hidden buffers that haven't been written to disk
 set wrap                            "Wrap long lines
 set linebreak                       "Wraps at words
+set colorcolumn=80                  "Highlight line 80
+set textwidth=80                    "Automatically wrap lines at 80 characters
 
 " Smarter search settings
 set ignorecase                      "Ignore case...
@@ -76,30 +77,37 @@ set list                            "show invisable characters
 set listchars=tab:▸\ ,eol:¬         "set invisable character symbols
 
 " ===== mappings =====
+"Sane up and down in wrapped lines
+nnoremap k gk
+nnoremap j gj
+
 if has('nvim')
-  tnoremap <Esc> <C-\><C-n>          "Escape from terminal emulator
-  tnoremap <A-h> <C-\><C-n><C-w>h     "Easier window movement
+  "Escape from terminal emulator
+  tnoremap <Esc> <C-\><C-n>
+  "Easier window movement
+  tnoremap <A-h> <C-\><C-n><C-w>h
   tnoremap <A-j> <C-\><C-n><C-w>j
   tnoremap <A-k> <C-\><C-n><C-w>k
   tnoremap <A-l> <C-\><C-n><C-w>l
 endif
 
+"Move easily between windows with alt keys
 nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 
-"nnoremap j gj                       "Sane up and down in wrapped lines
-"nnoremap k gk
-
-noremap <leader>y "+y               "Yank to OS buffer
+"Yank to OS buffer
+noremap <leader>y "+y
 noremap <leader>yy "+yy
 
-nmap <Tab> :bn<CR>              "Tab cycles forward through all buffers
-nmap <S-Tab> :bp<CR>            "Shift Tab cycles backwards through all buffers
+"Tab to cycles forward/backward through all buffers
+nmap <Tab> :bn<CR>
+nmap <S-Tab> :bp<CR>
 
-nnoremap <leader>ev :e ~/.vimrc<CR>       "Open vim config
-nnoremap <leader>sv :source ~/.vimrc<CR>  "Source vim config
+"Quickly load/use vimrc
+nnoremap <leader>ev :e $HOME/.vimrc<CR>
+nnoremap <leader>sv :source $HOME/.vimrc<CR>
 
 " ===== visual =====
 syntax on
@@ -116,11 +124,11 @@ autocmd BufWritePre * :%s/\s\+$//e  "Cleanup file whitespace when saving
 
 " ===== misc =====
 set mouse=a
-set wim=list:full                   "Wildmode settings
+set wim=longest,full                "Wildmode settings
 set writebackup                     "Do not keep backup files after writeing changes to disk
 set noswapfile                      "Do not write annoying intermediate swap files,
 set undofile                        "Remember history after file write until reboot
-set undodir=/tmp/nvimundo//         "Store swap files in fixed location, not current directory.
+set undodir=/tmp/vimundo//          "Store swap files in fixed location, not current directory.
 
 " ====== markdown ======
 let g:vim_markdown_folding_disabled=1 "Disable markdown plugin folds
