@@ -65,6 +65,7 @@ set wrap                            "Wrap long lines
 set linebreak                       "Wraps at words
 set colorcolumn=80                  "Highlight line 80
 set textwidth=80                    "Automatically wrap lines at 80 characters
+set nojoinspaces                    "No two spaces after .?!
 
 " Smarter search settings
 set ignorecase                      "Ignore case...
