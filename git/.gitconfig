@@ -2,6 +2,6 @@
 	name = Tako Marks
 	email = me@tako.mx
 [push]
-	default = simple
+	default = current
 [rerere]
 	enabled = true
