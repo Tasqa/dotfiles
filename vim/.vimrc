@@ -25,11 +25,21 @@ Plug 'tpope/vim-repeat'           "enable repeating supported plugin maps with.
 Plug 'vimwiki/vimwiki'            "Wiki plugin for ViM
 
 " - Language plugins
-Plug 'davidhalter/jedi-vim'       "Python autocompletion
 Plug 'vim-scripts/JSON.vim'       "JSON syntax highlighting
 Plug 'elixir-lang/vim-elixir'     "Elixir syntax highlighting
 Plug 'plasticboy/vim-markdown'    "Markdown highlighting and rules with mappings
 Plug 'rust-lang/rust.vim'         "Rust language support + autoformatting
+
+" - Completion engine
+Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'Shougo/echodoc.vim'
 
 call plug#end()
 
@@ -162,3 +172,9 @@ let g:EasyMotion_leader_key = '<space>'   "Easymotion leader key to spacebar
 " ===== Neomake =====
 call neomake#configure#automake('w')
 
+" ===== LanguagServer =====
+let g:LanguageClient_autoStart = 1  " Automatically start language servers.
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ }
+let g:deoplete#enable_at_startup = 1
