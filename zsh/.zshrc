@@ -48,3 +48,7 @@ if [ "$USER" != "root" ]; then
   [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 fi
 
+# fzf with ripgrep setup
+[[ -d /usr/share/fzf ]] && source /usr/share/fzf/completion.zsh && source /usr/share/fzf/key-bindings.zsh
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"

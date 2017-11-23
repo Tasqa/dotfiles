@@ -18,7 +18,8 @@ Plug 'edkolev/tmuxline.vim'       "ViM Airline theme to tmux
 Plug 'tpope/vim-fugitive'         "Git wrapper
 Plug 'scrooloose/syntastic'       "Syntax checking
 Plug 'scrooloose/nerdtree'        "Filebrowser plugin
-Plug 'kien/ctrlp.vim'             "Quickly switch buffers
+Plug 'junegunn/fzf'               "Quick search with fzf
+Plug 'junegunn/fzf.vim'
 Plug 'msanders/snipmate.vim'      "Snips plugin, like in ST2/3
 Plug 'Lokaltog/vim-easymotion'    "Quickly and easily move through windows
 Plug 'tpope/vim-repeat'           "enable repeating supported plugin maps with.
@@ -82,6 +83,10 @@ set listchars=tab:▸\ ,eol:¬         "set invisable character symbols
 nnoremap k gk
 nnoremap j gj
 
+"Search through files with fzf
+nnoremap <C-p> :Files<CR>
+nnoremap <C-h> :Commits<CR>
+
 if has('nvim')
   "Escape from terminal emulator
   tnoremap <Esc> <C-\><C-n>
@@ -109,6 +114,12 @@ nmap <S-Tab> :bp<CR>
 "Quickly load/use vimrc
 nnoremap <leader>ev :e $HOME/.vimrc<CR>
 nnoremap <leader>sv :source $HOME/.vimrc<CR>
+
+" ====== fzf =====
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
 
 " ===== visual =====
 syntax on
