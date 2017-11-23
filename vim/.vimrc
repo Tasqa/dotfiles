@@ -176,5 +176,6 @@ call neomake#configure#automake('w')
 let g:LanguageClient_autoStart = 1  " Automatically start language servers.
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'python': ['pyls'],
     \ }
 let g:deoplete#enable_at_startup = 1
