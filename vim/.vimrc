@@ -1,4 +1,3 @@
-"ViM config file
 "Curated by Tako Marks from various sources
 
 " ===== init =====
@@ -16,7 +15,7 @@ Plug 'edkolev/tmuxline.vim'       "ViM Airline theme to tmux
 
 " - Functional packages
 Plug 'tpope/vim-fugitive'         "Git wrapper
-Plug 'scrooloose/syntastic'       "Syntax checking
+Plug 'neomake/neomake'            "Syntax checker
 Plug 'scrooloose/nerdtree'        "Filebrowser plugin
 Plug 'junegunn/fzf'               "Quick search with fzf
 Plug 'junegunn/fzf.vim'
@@ -149,7 +148,7 @@ let g:vim_markdown_folding_disabled=1 "Disable markdown plugin folds
 set laststatus=2                    "Always show statusline
 set ttimeoutlen=50                  "More responsive mode indicator in statusline
 let g:airline_powerline_fonts=1     "Use nice powerline patched font symbols
-
+"
 " ===== nerdtree =====
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1            "Show hidden files and folders
@@ -160,8 +159,6 @@ let NERDTreeIgnore = ['\.DS_Store$', '\.un\~$', '\.swp$']       " Set file filte
 " ===== easymotion =====
 let g:EasyMotion_leader_key = '<space>'   "Easymotion leader key to spacebar
 
-" ===== syntastic =====
-set statusline+=%{SyntasticStatuslineFlag()}        "Show Syntastic errors in statusline
-let g:syntastic_check_on_open=1     "Check syntax on file open
-let g:syntastic_enable_signs=1      "Show errors in ruler
+" ===== Neomake =====
+call neomake#configure#automake('w')
 
