@@ -5,3 +5,5 @@
 	default = current
 [rerere]
 	enabled = true
+[pull]
+	rebase = true
