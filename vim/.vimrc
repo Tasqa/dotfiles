@@ -31,15 +31,11 @@ Plug 'plasticboy/vim-markdown'    "Markdown highlighting and rules with mappings
 Plug 'rust-lang/rust.vim'         "Rust language support + autoformatting
 
 " - Completion engine
-Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 if has('nvim')
+  Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
+  Plug 'Shougo/echodoc.vim'
 endif
-Plug 'Shougo/echodoc.vim'
 
 call plug#end()
 
