@@ -120,6 +120,11 @@ nmap <S-Tab> :bp<CR>
 nnoremap <leader>ev :e $HOME/.vimrc<CR>
 nnoremap <leader>sv :source $HOME/.vimrc<CR>
 
+" ===== sane diff =====
+if &diff
+  highlight! link DiffText MatchParen
+endif
+
 " ====== fzf =====
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
