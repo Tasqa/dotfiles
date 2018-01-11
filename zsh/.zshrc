@@ -30,10 +30,13 @@ alias tmux="tmux -2"
 
 #GPG setup
 if [ -z "$GPG_TTY" ]; then
-  gpg-connect-agent /bye
-  export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
   GPG_TTY=$(tty); export GPG_TTY
+  unset SSH_AGENT_PID
+  if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+    export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+  fi
 fi
+
 
 # Color term setup
 if [ -e /usr/share/terminfo/x/xterm-256color ]; then
