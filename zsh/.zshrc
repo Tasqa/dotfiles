@@ -34,9 +34,9 @@ if [ -z "$GPG_TTY" ]; then
   unset SSH_AGENT_PID
   if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
     export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+    gpg-connect-agent /bye #autostart for SSH
   fi
 fi
-
 
 # Color term setup
 if [ -e /usr/share/terminfo/x/xterm-256color ]; then
