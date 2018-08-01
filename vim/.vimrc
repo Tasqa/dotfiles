@@ -71,8 +71,8 @@ set backspace=indent,eol,start      "Make backspace work sanely
 set hidden                          "Allow for hidden buffers that haven't been written to disk
 set wrap                            "Wrap long lines
 set linebreak                       "Wraps at words
-set colorcolumn=80                  "Highlight line 80
-set textwidth=80                    "Automatically wrap lines at 80 characters
+set colorcolumn=100                 "Highlight line 100
+set textwidth=100                   "Automatically wrap lines at 100 characters
 set nojoinspaces                    "No two spaces after .?!
 
 " Smarter search settings
