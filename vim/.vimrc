@@ -27,6 +27,7 @@ Plug 'vimwiki/vimwiki'            "Wiki plugin for ViM
 
 " - Language plugins
 Plug 'vim-scripts/JSON.vim'       "JSON syntax highlighting
+Plug 'saltstack/salt-vim'         "Salt filetype info
 Plug 'elixir-lang/vim-elixir'     "Elixir syntax highlighting
 Plug 'plasticboy/vim-markdown'    "Markdown highlighting and rules with mappings
 Plug 'rust-lang/rust.vim'         "Rust language support + autoformatting
