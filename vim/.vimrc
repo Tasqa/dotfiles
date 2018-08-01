@@ -22,6 +22,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'msanders/snipmate.vim'      "Snips plugin, like in ST2/3
 Plug 'Lokaltog/vim-easymotion'    "Quickly and easily move through windows
 Plug 'tpope/vim-repeat'           "enable repeating supported plugin maps with.
+Plug 'tpope/vim-sleuth'           "Detect indentation settings automatically
 Plug 'vimwiki/vimwiki'            "Wiki plugin for ViM
 
 " - Language plugins
@@ -139,9 +140,6 @@ set background=dark                 "Pick dark theme version
 hi Normal ctermbg=none              "Disable background color for transparency
 
 " ===== ident/whitespace =====
-set expandtab                       "Indentation with spaces
-set shiftwidth=2                    "Spaces used for each step in autoindent
-set softtabstop=2                   "Spaces used for Tab
 autocmd BufWritePre * :%s/\s\+$//e  "Cleanup file whitespace when saving
 
 " ===== misc =====
