@@ -1,21 +1,17 @@
-source $HOME/.antigen/antigen/antigen.zsh
+# Set up zsh pkg manager
+export ZPLUG_HOME=$HOME/.zplug
+source $HOME/.zplug/init.zsh
 
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
+# Setup history
+HISTFILE=${HOME}/.zsh_history
+setopt hist_ignore_all_dups
+setopt histignorespace
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle systemd
-antigen bundle archlinux
-antigen bundle command-not-found
+# Load terminal theme
+zplug "ohmyzsh/ohmyzsh", use:themes/terminalparty.zsh-theme, from:github, as:theme
 
-antigen bundle zsh-users/zsh-syntax-highlighting
-
-# Load the theme.
-antigen theme terminalparty
-
-# Tell antigen that you're done.
-antigen apply
+# Apply plugins
+zplug load
 
 # Preferred editor
 if [[ -n `command -v nvim` ]]; then
@@ -27,16 +23,6 @@ fi
 
 # Aliases
 alias tmux="tmux -2"
-
-#GPG setup
-if [ -z "$GPG_TTY" ]; then
-  GPG_TTY=$(tty); export GPG_TTY
-  unset SSH_AGENT_PID
-  if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
-    export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
-    gpg-connect-agent /bye #autostart for SSH
-  fi
-fi
 
 # Color term setup
 if [ -e /usr/share/terminfo/x/xterm-256color ]; then
@@ -51,10 +37,9 @@ if [ "$USER" != "root" ]; then
   [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 fi
 
-# fzf with ripgrep setup
-[[ -d /usr/share/fzf ]] && source /usr/share/fzf/completion.zsh && source /usr/share/fzf/key-bindings.zsh
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Load rust toolchain
-source $HOME/.cargo/env
+alias irc='mosh turris.hex.sh --ssh="ssh -p 2222"'
+
+export PATH=$HOME/.local/bin:$PATH
+
